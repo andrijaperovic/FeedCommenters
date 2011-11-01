@@ -1,0 +1,14 @@
+#wait
+  =image_tag("/images/loader.gif")
+#index_page
+  %h2 Select one of your friends:
+  %ul
+  - @friends.each do |friend|
+    #names
+      %li= link_to "#{friend["name"]}", "/facebook/show?id=#{friend["id"]}&name=#{friend["name"]}"
+
+:javascript
+  $('#names li').click(function() {
+    $('#index_page').hide();
+    $('#wait').show();
+  });

@@ -1,0 +1,13 @@
+%h2="Ranking for #{@friend}"
+
+<ol id="commentlist">
+- @commenters.each_with_index do |(key,value),index|
+  %li
+    %span.commentnumber= "##{index+1}"
+    %p
+      %cite #{value[0]}
+    #friend
+      = image_tag("#{value[1]}")
+      #description
+        %p= "#{value[0]} has commented on posts on the profile #{value[2]} times"
+</ol>
